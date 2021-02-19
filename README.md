@@ -1,4 +1,8 @@
-# vuex
+# My first proyect with vuex! 
+
+This is a simple proyect, it let you press buttons and each one ads or substracts from the number shown in "Mi contador con Vuex". Each set of buttons was made with a different methodology. More practice, more fun :) 
+
+Este es un proyecto simple, te deja presionar dos botones y cada uno agrega o resta al número mostrado en "Mi contador con Vuex. Cada par de botones fue hecho con una metodología diferente. 
 
 ## Project setup
 ```
