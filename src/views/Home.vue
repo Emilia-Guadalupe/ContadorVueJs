@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 :style="colorContador" >{{titulo}}: {{ contador }}</h1>
+  </div>
+  <div>
+    <button @click="accionIncrementar">Incrementar</button>
+  </div>
+  <div>
+    <BtnDisminuir />
+  </div>
+  <hr>
+  <div>
+    <BtnAccion :estado="true" />
+    <BtnAccion :estado="false" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import BtnDisminuir from '../components/BtnDisminuir'
+import BtnAccion from '../components/BtnAccion'
+import {mapState, mapMutations, mapActions} from 'vuex'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    BtnDisminuir, 
+    BtnAccion
+  },
+  data() {
+    return {
+      titulo: "Mi contador con Vuex"
+    }
+  },
+  computed: {
+    ...mapState(['contador']),
+    colorContador(){
+      return [this.contador > 100 ? {'color': 'green'} : {'color': 'red'}]
+    }
+  },
+  methods: {
+    ...mapMutations(['incrementar']),
+    ...mapActions(['accionIncrementar'])
   }
 }
 </script>
